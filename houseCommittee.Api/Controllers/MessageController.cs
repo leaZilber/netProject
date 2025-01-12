@@ -17,14 +17,14 @@ namespace houseCommittee.Api.Controllers
         }
 
         // GET: api/<MessageController>
-        [HttpGet]
+        [HttpGet("{id}")]
         public Message GetMessageById(string id)
         {
             return _messageService.GetMessageByid(id);
         }
 
         // GET api/<MessageController>/5
-        [HttpGet("{id}")]
+        [HttpGet]
         public List<Message> GetAllMessage()
         {
             return _messageService.GetAllMessages();

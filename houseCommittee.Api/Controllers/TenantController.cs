@@ -19,14 +19,14 @@ namespace houseCommittee.Api.Controllers
             _tenant = tenant;
         }
         // GET: api/<TenantController>
-        [HttpGet]
+        [HttpGet("{id}")]
         public Tenant GetTenantById(string id)
         {
             return _tenant.GetTenantByid(id);
         }
 
         // GET api/<TenantController>/5
-        [HttpGet("{id}")]
+        [HttpGet]
         public List<Tenant> GetAllTenants()
         {
             return _tenant.GetAllTenant();
