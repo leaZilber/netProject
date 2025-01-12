@@ -1,9 +1,7 @@
 ﻿using houseCommittee.core.models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace houseCommittee.core.repositories
+
+namespace houseCommittee.core.IService
 {
     public interface IBuildingService
     {

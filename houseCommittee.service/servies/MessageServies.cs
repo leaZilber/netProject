@@ -1,14 +1,15 @@
-﻿using houseCommittee.core.models;
+﻿using houseCommittee.core.IService;
+using houseCommittee.core.models;
 using houseCommittee.core.repositoriesI;
 using System.Linq;
-namespace houseCommittee.servies
+namespace houseCommittee.service.servies
 {
-    public class MessageServies
+    public class MessageServies : IMessageService
     {
-        private readonly IMessageService _messageService;
-        public MessageServies(IMessageService messageService)
+        private readonly IMessageRepository _messageRepository;
+        public MessageServies(IMessageRepository messageRepository)
         {
-            _messageService = messageService;
+            _messageRepository = messageRepository;
         }
         static List<Message> MessagesList = new List<Message>();
         public Message GetMessageByid(string Title)//שליפת הודעה עפ"י כותרת
@@ -17,18 +18,18 @@ namespace houseCommittee.servies
             //if (m == null)
             //    return null;
             //return m;
-            return _messageService.GetMessageByid(Title);   
+            return _messageRepository.GetMessageByid(Title);   
         }
         public void AddMessages(Message mes)//הוספת הודעה
         {
             //MessagesList.Add(mes);
-            _messageService.AddMessage(mes);
+            _messageRepository.AddMessage(mes);
         }
 
         public void DeleteMessages(string title, string target)//מחיקת הודעה
         {
             //MessagesList.RemoveAll(item => item.target == target&&item.Title==title);
-            _messageService.DeleteMessage(title, target);
+            _messageRepository.DeleteMessage(title, target);
         }
         public void UpDateMessage(string target,string title, Message newMes)//עדכון פרטי הודעה
         {
@@ -39,7 +40,27 @@ namespace houseCommittee.servies
             //        MessagesList.Add(newMes);
             //    }
             //}
-            _messageService.UpDateMessage(newMes,title,target);
+            _messageRepository.UpDateMessage(newMes,title,target);
+        }
+
+        public List<Message> GetAllMessages()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddMessage(Message newMessage)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpDateMessage(Message newMessage, string title, string target)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteMessage(string title, string target)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,12 +1,13 @@
-﻿using houseCommittee.core.models;
+﻿using houseCommittee.core.IService;
+using houseCommittee.core.models;
 using houseCommittee.core.repositoriesI;
 using System.Linq;
-namespace houseCommittee.servies
+namespace houseCommittee.service.servies
 {
-    public class HouseCommitteeServies
+    public class HouseCommitteeServies :  IHouseCommitteeService
     {
-        private readonly IHouseCommittee _houseCommittee;
-        public HouseCommitteeServies(IHouseCommittee houseCommittee)
+        private readonly IHouseCommitteeRepository _houseCommittee;
+        public HouseCommitteeServies(IHouseCommitteeRepository houseCommittee)
         {
             _houseCommittee = houseCommittee;
         }
@@ -43,6 +44,31 @@ namespace houseCommittee.servies
         {
             //HouseCommitteeList.RemoveAll(match => match.PhoneHouseCommittee == phone);
             _houseCommittee.DeleteHouseCom(phone);
+        }
+
+        public HouseCommittee GetHouseComByid(string code)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<HouseCommittee> GetAllHouseCom()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddHouseCom(HouseCommittee newHouseCom)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpDateHouseCom(HouseCommittee newHouseCom, string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteHouseCom(string phone)
+        {
+            throw new NotImplementedException();
         }
     }
 }

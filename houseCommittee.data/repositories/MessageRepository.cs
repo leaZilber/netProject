@@ -1,13 +1,11 @@
 ﻿using houseCommittee.core.models;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using WebApplication1.data;
+using houseCommittee.core.repositoriesI;
+
 //using WebApplication1;
 
 namespace houseCommittee.data.repositories
 {
-    public class MessageRepository
+    public class MessageRepository : IMessageRepository
     {
         private readonly DataContext _message;
         public MessageRepository(DataContext message)
@@ -45,6 +43,16 @@ namespace houseCommittee.data.repositories
         public void DeleteMessage(string title, string target)//מחיקת הודעה
         {
             _message.MessageList.RemoveAll(item => item.Title == title && item.target == target);
+        }
+
+        public void UpDateMessage(Message newMessage, string title)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteMessage(string id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace houseCommittee.core.repositoriesI
 {
-    public interface IHouseCommittee
+    public interface IHouseCommitteeRepository
     {
         public HouseCommittee GetHouseComByid(string code);//שליפת וועד בית עפ"י טלפון
 

@@ -1,11 +1,12 @@
-﻿using houseCommittee.core.models;
+﻿using houseCommittee.core.IService;
+using houseCommittee.core.models;
 using houseCommittee.core.repositoriesI;
 using Microsoft.AspNetCore.Mvc;
 
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace WebApplication1.Controllers
+namespace houseCommittee.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -17,14 +18,14 @@ namespace WebApplication1.Controllers
             _houseCommitteeService = houseCommitteeService;
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public HouseCommittee GetHouseComById(string id)
         {
            return _houseCommitteeService.GetHouseComByid(id);
         }
 
         // GET api/<HouseCommitteeController>/5
-        [HttpGet("{id}")]
+        [HttpGet]
         public List<HouseCommittee> GetAllHouseCom()
         {
            return _houseCommitteeService.GetAllHouseCom();

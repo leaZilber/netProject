@@ -1,15 +1,11 @@
 ﻿using houseCommittee.core.models;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using WebApplication1;
-using WebApplication1.data;
+using houseCommittee.core.repositoriesI;
+
 
 namespace houseCommittee.data.repositories
 {
-    public class HouseCommitteeRepository
+    public class HouseCommitteeRepository : IHouseCommitteeRepository
     {
-
         private readonly DataContext _house;
         public HouseCommitteeRepository(DataContext house)
         {

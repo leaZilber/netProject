@@ -1,14 +1,15 @@
-﻿using houseCommittee.core.models;
+﻿using houseCommittee.core.IService;
+using houseCommittee.core.models;
 using houseCommittee.core.repositoriesI;
 
-namespace houseCommittee.servies
+namespace houseCommittee.service.servies
 {
-    public class TenantServies
+    public class TenantServies : ITenantService
     {
-        private readonly ITenantService _tenantService;
-        public TenantServies(ITenantService tenantService)
+        private readonly ITenantRepository _tenantRepository;
+        public TenantServies(ITenantRepository tenantRepository)
         {
-            _tenantService = tenantService;
+            _tenantRepository = tenantRepository;
         }
         public Tenant GetTenantByid(string id)//שליפת דייר עפ"י קוד
         {
@@ -17,22 +18,22 @@ namespace houseCommittee.servies
             //    return null;
 
             //return t;
-            return _tenantService.GetTenantByid(id);
+            return _tenantRepository.GetTenantByid(id);
         }
         public void AddTenant(Tenant tenant)//הוספת דייר
         {
             //tenantsList.Add(tenant);
-            _tenantService.AddTenant(tenant);
+            _tenantRepository.AddTenant(tenant);
         }
 
         public void DeleteTenant(string id)//מחיקת דייר
         {
             //tenantsList.RemoveAll(te => te.CodeTenant == id);
-            _tenantService.DeleteTenant(id);
+            _tenantRepository.DeleteTenant(id);
         }
         public void UpDateTenant(Tenant newTen, string id)//עדכון פרטי דייר
         {
-            _tenantService.UpDateTenant(newTen, id);
+            _tenantRepository.UpDateTenant(newTen, id);
             //foreach (var t in tenantsList)
             //{
             //    if (t.CodeTenant == id)
@@ -40,6 +41,11 @@ namespace houseCommittee.servies
             //        tenantsList.Add(t);
             //    }
             //}
+        }
+
+        public List<Tenant> GetAllTenant()
+        {
+            throw new NotImplementedException();
         }
     }
 }

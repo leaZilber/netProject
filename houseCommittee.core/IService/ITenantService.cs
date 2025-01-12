@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace houseCommittee.core.repositoriesI
+namespace houseCommittee.core.IService
 {
     public interface ITenantService
     {

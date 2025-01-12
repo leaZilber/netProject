@@ -1,12 +1,9 @@
 ﻿using houseCommittee.core.models;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using WebApplication1;
-using WebApplication1.data;
+using houseCommittee.core.repositoriesI;
+
 namespace houseCommittee.data.repositories
 {
-    public class TenantRepository
+    public class TenantRepository : ITenantRepository
     {
         private readonly DataContext _tenant;
         public TenantRepository(DataContext tenant)

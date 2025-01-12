@@ -14,8 +14,8 @@ namespace houseCommittee.core.repositoriesI
 
         public void AddMessage(Message newMessage);
 
-        public void UpDateMessage(Message newMessage, string title);//עדכון פרטי בנין
+        public void UpDateMessage(Message newMessage, string title, string target);
 
-        public void DeleteMessage(string id);//מחיקת הודעה
+        public void DeleteMessage(string title, string target);
     }
 }

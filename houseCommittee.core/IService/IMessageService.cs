@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace houseCommittee.core.repositoriesI
+namespace houseCommittee.core.IService
 {
     public interface IMessageService
     {

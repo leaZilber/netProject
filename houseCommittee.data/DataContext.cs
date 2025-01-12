@@ -1,10 +1,10 @@
-﻿using houseCommittee.Api;
-using houseCommittee.core.models;
+﻿using houseCommittee.core.models;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace houseCommittee.data
 {
-    public class DataContext:IDataContext
+    public class DataContext:DbContext
     {
         public List<Message> MessageList { get; set; }
         public List<Building> BuildingList { get; set; }

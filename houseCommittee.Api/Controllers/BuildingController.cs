@@ -1,5 +1,5 @@
-﻿using houseCommittee.core.models;
-using houseCommittee.core.repositories;
+﻿using houseCommittee.core.IService;
+using houseCommittee.core.models;
 using houseCommittee.core.repositoriesI;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,14 +15,14 @@ namespace houseCommittee.Api.Controllers
             _building= building;
         }
         // GET: api/<BuildingController>
-        [HttpGet]
+        [HttpGet("{id}")]
         public Building GetBuildingById(int id)
         {
            return _building.GetBuildingByid(id);         
         }
 
         // GET api/<BuildingController>/5
-        [HttpGet("{id}")]
+        [HttpGet]
         public List<Building> GetAllBuildings()
         {
            return _building.GetAllBuildings();

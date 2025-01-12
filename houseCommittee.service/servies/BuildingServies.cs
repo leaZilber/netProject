@@ -1,11 +1,10 @@
 ﻿using houseCommittee.core.IRepositories;
+using houseCommittee.core.IService;
 using houseCommittee.core.models;
-using houseCommittee.core.repositoriesI;
-using houseCommittee.core.repositories;
-using System.ComponentModel;
-namespace houseCommittee.servies.servies
+
+namespace houseCommittee.service.servies
 {
-    public class BuildingServies:IBuildingService
+    public class BuildingServies : IBuildingService
     {
         private readonly IBuildingRepository _buildingRepository;
         public BuildingServies(IBuildingRepository buildingRepository)

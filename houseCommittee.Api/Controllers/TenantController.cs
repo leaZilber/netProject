@@ -1,11 +1,12 @@
-﻿using houseCommittee.core.models;
+﻿using houseCommittee.core.IService;
+using houseCommittee.core.models;
 using houseCommittee.core.repositoriesI;
 using Microsoft.AspNetCore.Mvc;
 
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace houseCommittee.Controllers
+namespace houseCommittee.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
