@@ -28,6 +28,7 @@ namespace houseCommittee.data.repositories {
         public void AddBuilding(Building newBuild)
         {
             _dataContext.BuildingList.Add(newBuild);
+            _dataContext.SaveChanges();
         }
 
         public void UpDateBuild(Building newBuild, int id)//עדכון פרטי בנין
@@ -37,8 +38,10 @@ namespace houseCommittee.data.repositories {
                 if (item.NumBuilding == id)
                 {
                     _dataContext.BuildingList.Add(newBuild);
+                    _dataContext.SaveChanges();
                 }
             }
+           
         }
 
         public void DeleteBuilding(int id) // מחיקת בנין

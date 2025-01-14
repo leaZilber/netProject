@@ -17,5 +17,7 @@ namespace houseCommittee.core.IService
 
         public void DeleteMessage(string title,string target);//מחיקת הודעה
 
+
+
     }
 }

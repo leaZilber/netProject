@@ -28,6 +28,7 @@ namespace houseCommittee.data.repositories
         public void AddMessage(Message newMessage)
         {
             _message.MessageList.Add(newMessage);
+            _message.SaveChanges();
         }
 
         public void UpDateMessage(Message newMessage, string title, string target)//עדכון פרטי בנין
@@ -39,6 +40,7 @@ namespace houseCommittee.data.repositories
                     _message.MessageList.Add(item);
                 }
             }
+            _message.SaveChanges();
         }
         public void DeleteMessage(string title, string target)//מחיקת הודעה
         {
@@ -47,17 +49,19 @@ namespace houseCommittee.data.repositories
             {
                 _message.MessageList.Remove(message);
                 _message.SaveChanges();
+
             }
+           
         }
 
-        public void UpDateMessage(Message newMessage, string title)
-        {
-            throw new NotImplementedException();
-        }
+        //public void UpDateMessage(Message newMessage, string title)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        public void DeleteMessage(string id)
-        {
-            throw new NotImplementedException();
-        }
+        //public void DeleteMessage(string id)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

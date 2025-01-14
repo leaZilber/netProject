@@ -27,6 +27,7 @@ namespace houseCommittee.data.repositories
         public void AddHouseCom(HouseCommittee newHouseCom)
         {
             _house.HouseCommitteeList.Add(newHouseCom);
+            _house.SaveChanges();
         }
 
         public void UpDateHouseCom(HouseCommittee newHouseCom, string id)//עדכון פרטי וועד בית
@@ -36,8 +37,10 @@ namespace houseCommittee.data.repositories
                 if (item.PhoneHouseCommittee == id)
                 {
                     _house.HouseCommitteeList.Add(newHouseCom);
+                    _house.SaveChanges();
                 }
             }
+           
         }
         public void DeleteHouseCom(string phone)//מחיקת וועד בית
         {

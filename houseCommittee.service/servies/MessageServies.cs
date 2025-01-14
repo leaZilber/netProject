@@ -62,5 +62,6 @@ namespace houseCommittee.service.servies
         {
             throw new NotImplementedException();
         }
+
     }
 }
