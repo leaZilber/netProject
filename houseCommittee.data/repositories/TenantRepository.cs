@@ -21,7 +21,7 @@ namespace houseCommittee.data.repositories
 
         public List<Tenant> GetAllTenant()
         {
-            return _tenant.TenantList;
+            return _tenant.TenantList.ToList();
         }
 
         public void AddTenant(Tenant newTenant)
@@ -41,7 +41,12 @@ namespace houseCommittee.data.repositories
         }
         public void DeleteTenant(string code)//מחיקת דייר
         {
-            _tenant.TenantList.RemoveAll(te => te.CodeTenant == code);
+            var tenant=_tenant.TenantList.FirstOrDefault(item=>item.CodeTenant == code);
+            if (tenant!=null)
+            {
+                _tenant.TenantList.Remove(tenant);
+                _tenant.SaveChanges();
+            }
         }
     }
 }

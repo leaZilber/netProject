@@ -1,5 +1,6 @@
 ﻿using houseCommittee.core.models;
 using houseCommittee.core.IRepositories;
+using System.ComponentModel;
 
 
 namespace houseCommittee.data.repositories {
@@ -21,7 +22,7 @@ namespace houseCommittee.data.repositories {
         }
         public List<Building> GetAllBuildings()
         {
-            return _dataContext.BuildingList;
+            return _dataContext.BuildingList.ToList();
         }
 
         public void AddBuilding(Building newBuild)
@@ -39,9 +40,15 @@ namespace houseCommittee.data.repositories {
                 }
             }
         }
-        public void DeleteBuilding(int id)//מחיקת בנין
+
+        public void DeleteBuilding(int id) // מחיקת בנין
         {
-            _dataContext.BuildingList.RemoveAll(item => item.NumBuilding == id);
+            var building = _dataContext.BuildingList.FirstOrDefault(item => item.NumBuilding == id);
+            if (building != null)
+            {
+                _dataContext.BuildingList.Remove(building);
+                _dataContext.SaveChanges();
+            }
         }
     }
 }

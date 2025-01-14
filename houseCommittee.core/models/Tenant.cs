@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace houseCommittee.core.models
@@ -11,6 +12,7 @@ namespace houseCommittee.core.models
         public int ApartmentNumber { get; set; }// מספר דירה
         public int AmounPayments { get; set; }//כמות תשלומים
         public string MailTenant { get; set; }//מייל הדייר
+        [Key]
         public string PhoneTenant { get; set; }//טלפון הדייר
         public string CodeTenant { get; set; }
     }

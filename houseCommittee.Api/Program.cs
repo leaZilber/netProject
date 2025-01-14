@@ -1,14 +1,9 @@
-
-
 using houseCommittee.core.IRepositories;
 using houseCommittee.core.IService;
 using houseCommittee.core.repositoriesI;
 using houseCommittee.data;
 using houseCommittee.data.repositories;
 using houseCommittee.service.servies;
-
-
-
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.

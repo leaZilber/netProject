@@ -21,7 +21,7 @@ namespace houseCommittee.data.repositories
         }
         public List<HouseCommittee> GetAllHouseCom()
         {
-            return _house.HouseCommitteeList;
+            return _house.HouseCommitteeList.ToList();
         }
 
         public void AddHouseCom(HouseCommittee newHouseCom)
@@ -41,7 +41,12 @@ namespace houseCommittee.data.repositories
         }
         public void DeleteHouseCom(string phone)//מחיקת וועד בית
         {
-            _house.HouseCommitteeList.RemoveAll(item => item.PhoneHouseCommittee == phone);
+            var house = _house.HouseCommitteeList.FirstOrDefault(item => item.PhoneHouseCommittee == phone);
+            if (house != null)
+            {
+                _house.HouseCommitteeList.Remove(house);
+                _house.SaveChanges();
+            }
         }
     }
 }

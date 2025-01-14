@@ -22,7 +22,7 @@ namespace houseCommittee.data.repositories
         }
         public List<Message> GetAllMessages()
         {
-            return _message.MessageList;
+            return _message.MessageList.ToList();
         }
 
         public void AddMessage(Message newMessage)
@@ -42,7 +42,12 @@ namespace houseCommittee.data.repositories
         }
         public void DeleteMessage(string title, string target)//מחיקת הודעה
         {
-            _message.MessageList.RemoveAll(item => item.Title == title && item.target == target);
+            var message = _message.MessageList.FirstOrDefault(item => item.Title == title && item.target == target);
+            if (message != null)
+            {
+                _message.MessageList.Remove(message);
+                _message.SaveChanges();
+            }
         }
 
         public void UpDateMessage(Message newMessage, string title)
